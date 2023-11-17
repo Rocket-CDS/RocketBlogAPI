@@ -1,0 +1,104 @@
+<genxml>
+  <systemkey>rocketblogapi</systemkey>
+  <systemname>RocketBlogAPI</systemname>
+  <databasetable>RocketBlogAPI</databasetable>
+  <logtracking>False</logtracking>
+  <active>True</active>
+  <icon>auto_awesome_motion</icon>
+
+	<sqlindex list="true">
+		<genxml>
+			<systemkey>rocketblogapi</systemkey>
+			<ref>articlename</ref>
+			<xpath>genxml/lang/genxml/textbox/articlename</xpath>
+			<typecode>rocketblogapiART</typecode>
+		</genxml>
+		<genxml>
+			<systemkey>rocketblogapi</systemkey>
+			<ref>publisheddate</ref>
+			<xpath>genxml/textbox/publisheddate</xpath>
+			<typecode>rocketblogapiART</typecode>
+		</genxml>
+		<genxml>
+			<systemkey>rocketblogapi</systemkey>
+			<ref>articleref</ref>
+			<xpath>genxml/textbox/articleref</xpath>
+			<typecode>rocketblogapiART</typecode>
+		</genxml>
+	</sqlindex>
+
+	<groupsdata list="true">
+    <genxml>
+      <textbox>
+        <groupref>catalog</groupref>
+        <groupicon></groupicon>
+      </textbox>
+    </genxml>
+  </groupsdata>
+
+  <providerdata list="true">
+
+    <genxml>
+      <textbox>
+        <interfacekey>scheduler</interfacekey>
+        <namespaceclass>RocketBlogAPI.Components.Scheduler</namespaceclass>
+        <assembly>RocketBlogAPI</assembly>
+        <interfaceicon></interfaceicon>
+        <defaultcommand></defaultcommand>
+        <relpath>/DesktopModules/DNNrocketModules/RocketBlogAPI</relpath>
+      </textbox>
+      <providertype>scheduler</providertype>
+      <dropdownlist>
+        <group></group>
+      </dropdownlist>
+      <checkbox>
+        <onmenu>false</onmenu>
+        <active>false</active>
+      </checkbox>
+      <radio>
+        <securityrolesadministrators>1</securityrolesadministrators>
+        <securityrolesmanager>0</securityrolesmanager>
+        <securityroleseditor>0</securityroleseditor>
+        <securityrolesclienteditor>0</securityrolesclienteditor>
+        <securityrolesregisteredusers>0</securityrolesregisteredusers>
+        <securityrolessubscribers>0</securityrolessubscribers>
+        <securityrolesall>0</securityrolesall>
+      </radio>
+    </genxml>
+
+  </providerdata>
+
+
+  <interfacedata list="true">
+
+    <genxml>
+      <textbox>
+        <interfacekey>rocketblogapi</interfacekey>
+        <namespaceclass>RocketBlogAPI.API.StartConnect</namespaceclass>
+        <assembly>RocketBlogAPI</assembly>
+        <interfaceicon></interfaceicon>
+        <defaultcommand>rocketblogapi_get</defaultcommand>
+        <relpath>/DesktopModules/DNNrocketModules/RocketBlogAPI</relpath>
+      </textbox>
+      <providertype></providertype>
+      <dropdownlist>
+        <group></group>
+      </dropdownlist>
+      <checkbox>
+        <onmenu>false</onmenu>
+        <active>true</active>
+      </checkbox>
+      <radio>
+        <securityrolesadministrators>1</securityrolesadministrators>
+        <securityrolesmanager>1</securityrolesmanager>
+        <securityroleseditor>1</securityroleseditor>
+        <securityrolesclienteditor>0</securityrolesclienteditor>
+        <securityrolesregisteredusers>0</securityrolesregisteredusers>
+        <securityrolessubscribers>0</securityrolessubscribers>
+        <securityrolesall>0</securityrolesall>
+      </radio>
+    </genxml>
+
+  </interfacedata>
+</genxml>
+
