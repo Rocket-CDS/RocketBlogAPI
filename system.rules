@@ -40,7 +40,7 @@
 
     <genxml>
       <textbox>
-        <interfacekey>scheduler</interfacekey>
+        <interfacekey>scheduler-rocketblogapi</interfacekey>
         <namespaceclass>RocketBlogAPI.Components.Scheduler</namespaceclass>
         <assembly>RocketBlogAPI</assembly>
         <interfaceicon></interfaceicon>
@@ -53,7 +53,7 @@
       </dropdownlist>
       <checkbox>
         <onmenu>false</onmenu>
-        <active>false</active>
+        <active>true</active>
       </checkbox>
       <radio>
         <securityrolesadministrators>1</securityrolesadministrators>
@@ -65,6 +65,34 @@
         <securityrolesall>0</securityrolesall>
       </radio>
     </genxml>
+
+	  <genxml>
+		  <textbox>
+			  <interfacekey>events-rocketblogapi</interfacekey>
+			  <namespaceclass>RocketBlogAPI.Components.Events</namespaceclass>
+			  <assembly>RocketBlogAPI</assembly>
+			  <interfaceicon></interfaceicon>
+			  <defaultcommand></defaultcommand>
+			  <relpath>/DesktopModules/DNNrocketModules/RocketBlogAPI</relpath>
+		  </textbox>
+		  <providertype>eventprovider</providertype>
+		  <dropdownlist>
+			  <group></group>
+		  </dropdownlist>
+		  <checkbox>
+			  <onmenu>false</onmenu>
+			  <active>true</active>
+		  </checkbox>
+		  <radio>
+			  <securityrolesadministrators>1</securityrolesadministrators>
+			  <securityrolesmanager>0</securityrolesmanager>
+			  <securityroleseditor>0</securityroleseditor>
+			  <securityrolesclienteditor>0</securityrolesclienteditor>
+			  <securityrolesregisteredusers>0</securityrolesregisteredusers>
+			  <securityrolessubscribers>0</securityrolessubscribers>
+			  <securityrolesall>0</securityrolesall>
+		  </radio>
+	  </genxml>	  
 
   </providerdata>
 
