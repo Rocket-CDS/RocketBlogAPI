@@ -25,18 +25,22 @@ namespace RocketBlogAPI.Components
                 if (portalCatalog.Active && (portalCatalog.SchedulerRunHours == 0 || (portalCatalog.LastSchedulerTime < DateTime.Now.AddHours(portalCatalog.SchedulerRunHours * -1))))
                 {
                     var objCtrl = new DNNrocketController();
-                    
+
                     // Publish hidden articles on publishdate.
-                    var l = objCtrl.GetList(portalId, -1, "rocketblogapiART", "and [XMLData].value('(genxml/checkbox/hidden)[1]','bit') = 1 and [XMLData].value('(genxml/checkbox/autopublish)[1]','bit') = 1", "","",0,0,0,0, "RocketDirectoryAPI");
-                    foreach (var sInfo in l)
+                    var catalogSettings = new CatalogSettingsLimpet(portalId, DNNrocketUtils.GetCurrentCulture(), "rocketblogapi");
+                    if (catalogSettings.Info.GetXmlPropertyBool("genxml/checkbox/hidefuturedates"))
                     {
-                        var articleData = new ArticleLimpet(sInfo.ItemID, DNNrocketUtils.GetCurrentCulture(), "rocketblogapi");
-                        if (articleData.Exists)
+                        var l = objCtrl.GetList(portalId, -1, "rocketblogapiART", "and [XMLData].value('(genxml/checkbox/hidden)[1]','bit') = 1 and [XMLData].value('(genxml/checkbox/autopublish)[1]','bit') = 1", "", "", 0, 0, 0, 0, "RocketDirectoryAPI");
+                        foreach (var sInfo in l)
                         {
-                            if (articleData.Info.GetXmlPropertyDate("genxml/textbox/publisheddate").Date <= DateTime.Now.Date)
+                            var articleData = new ArticleLimpet(sInfo.ItemID, DNNrocketUtils.GetCurrentCulture(), "rocketblogapi");
+                            if (articleData.Exists)
                             {
-                                articleData.Info.SetXmlProperty("genxml/checkbox/hidden", "false");
-                                articleData.Update();
+                                if (articleData.Info.GetXmlPropertyDate("genxml/textbox/publisheddate").Date <= DateTime.Now.Date)
+                                {
+                                    articleData.Info.SetXmlProperty("genxml/checkbox/hidden", "false");
+                                    articleData.Update();
+                                }
                             }
                         }
                     }
