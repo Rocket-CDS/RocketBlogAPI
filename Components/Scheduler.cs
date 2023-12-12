@@ -21,9 +21,10 @@ namespace RocketBlogAPI.Components
             foreach (var portalId in portalList)
             {
                 var portalCatalog = new PortalCatalogLimpet(portalId, DNNrocketUtils.GetCurrentCulture(), "rocketblogapi");
-
-                if (portalCatalog.Active && (portalCatalog.SchedulerRunHours == 0 || (portalCatalog.LastSchedulerTime < DateTime.Now.AddHours(portalCatalog.SchedulerRunHours * -1))))
+                if (portalCatalog.Active && (portalCatalog.SchedulerRunHours == 0 || (portalCatalog.LastSchedulerTime < CacheUtils.DateTimeNow().AddHours(portalCatalog.SchedulerRunHours * -1))))
                 {
+                    LogUtils.LogSystem("START RocketBlogAPI Scheduler, LastSchedulerTime: " + portalCatalog.LastSchedulerTime.ToString("O"));
+
                     var objCtrl = new DNNrocketController();
 
                     // Publish hidden articles on publishdate.
@@ -36,20 +37,18 @@ namespace RocketBlogAPI.Components
                             var articleData = new ArticleLimpet(sInfo.ItemID, DNNrocketUtils.GetCurrentCulture(), "rocketblogapi");
                             if (articleData.Exists)
                             {
-                                if (articleData.Info.GetXmlPropertyDate("genxml/textbox/publisheddate").Date <= DateTime.Now.Date)
+                                if (articleData.Info.GetXmlPropertyDate("genxml/textbox/publisheddate").Date <= CacheUtils.DateTimeNow().Date)
                                 {
                                     articleData.Info.SetXmlProperty("genxml/checkbox/hidden", "false");
                                     articleData.Update();
+                                    LogUtils.LogSystem("RocketBlogAPI Scheduler: Publish Article: " + articleData.ArticleId);
                                 }
                             }
                         }
                     }
-                    portalCatalog.LastSchedulerTime = DateTime.Now;
+                    portalCatalog.LastSchedulerTime = CacheUtils.DateTimeNow();
                     portalCatalog.Update();
-                }
-                else
-                {
-                    if (portalCatalog.DebugMode) LogUtils.LogSystem("RocketBlogAPI Scheduler not run, LastSchedulerTime: " + portalCatalog.LastSchedulerTime.ToString("O") + " CurrentTime: " + DateTime.Now.ToString("O"));
+                    LogUtils.LogSystem("END RocketBlogAPI Scheduler, LastSchedulerTime: " + portalCatalog.LastSchedulerTime.ToString("O"));
                 }
             }
         }
