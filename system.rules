@@ -40,7 +40,7 @@
 
     <genxml>
       <textbox>
-        <interfacekey>scheduler-rocketblogapi</interfacekey>
+        <interfacekey>scheduler</interfacekey>
         <namespaceclass>RocketBlogAPI.Components.Scheduler</namespaceclass>
         <assembly>RocketBlogAPI</assembly>
         <interfaceicon></interfaceicon>
@@ -68,7 +68,7 @@
 
 	  <genxml>
 		  <textbox>
-			  <interfacekey>events-rocketblogapi</interfacekey>
+			  <interfacekey>events</interfacekey>
 			  <namespaceclass>RocketBlogAPI.Components.Events</namespaceclass>
 			  <assembly>RocketBlogAPI</assembly>
 			  <interfaceicon></interfaceicon>
@@ -92,7 +92,36 @@
 			  <securityrolessubscribers>0</securityrolessubscribers>
 			  <securityrolesall>0</securityrolesall>
 		  </radio>
-	  </genxml>	  
+	  </genxml>
+
+	  <genxml>
+		  <textbox>
+			  <interfacekey>searchindex</interfacekey>
+			  <namespaceclass>RocketDirectoryAPI.API.StartConnect</namespaceclass>
+			  <assembly>RocketDirectoryAPI</assembly>
+			  <interfaceicon></interfaceicon>
+			  <defaultcommand>article_search</defaultcommand>
+			  <relpath></relpath>
+		  </textbox>
+		  <providertype>searchindex</providertype>
+		  <dropdownlist>
+			  <group></group>
+		  </dropdownlist>
+		  <checkbox>
+			  <onmenu>false</onmenu>
+			  <active>true</active>
+		  </checkbox>
+		  <radio>
+			  <securityrolesadministrators>1</securityrolesadministrators>
+			  <securityrolesmanager>0</securityrolesmanager>
+			  <securityroleseditor>0</securityroleseditor>
+			  <securityrolesclienteditor>0</securityrolesclienteditor>
+			  <securityrolesregisteredusers>0</securityrolesregisteredusers>
+			  <securityrolessubscribers>0</securityrolessubscribers>
+			  <securityrolesall>0</securityrolesall>
+		  </radio>
+	  </genxml>
+
 
   </providerdata>
 
