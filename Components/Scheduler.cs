@@ -34,7 +34,7 @@ namespace RocketBlogAPI.Components
                         var l = objCtrl.GetList(portalId, -1, "rocketblogapiART", "and [XMLData].value('(genxml/checkbox/hidden)[1]','bit') = 1 and [XMLData].value('(genxml/checkbox/autopublish)[1]','bit') = 1", "", "", 0, 0, 0, 0, "RocketDirectoryAPI");
                         foreach (var sInfo in l)
                         {
-                            var articleData = new ArticleLimpet(sInfo.ItemID, DNNrocketUtils.GetCurrentCulture(), "rocketblogapi");
+                            var articleData = new ArticleLimpet(portalId, sInfo.ItemID, DNNrocketUtils.GetCurrentCulture(), "rocketblogapi");
                             if (articleData.Exists)
                             {
                                 if (articleData.Info.GetXmlPropertyDate("genxml/textbox/publisheddate").Date <= CacheUtils.DateTimeNow().Date)
