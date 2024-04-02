@@ -1,0 +1,47 @@
+@inherits RocketEventsAPI.Components.RocketEventsAPITokens<Simplisity.SimplisityRazor>
+@using DNNrocketAPI.Components;
+@using RocketDirectoryAPI.Components;
+@AssigDataModel(Model)
+@AddProcessDataResx(appTheme, true)
+<!--inject-->
+<div class='w3-row'>
+    <div class="w3-third w3-padding">
+        <label>@ResourceKey("DNNrocket.date")</label>
+        @{
+            DateTime today = DateTime.Today;
+            var todayString = today.ToString("O");
+        }
+        @TextBoxDate(info, "genxml/textbox/publisheddate", " class='w3-input w3-border' autocomplete='off'", todayString, false, 0)
+    </div>
+    <div class="w3-third w3-padding">
+        <label>@ResourceKey("RC.ref")</label>
+        @TextBox(info, articleData.RefXPath, " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
+    </div>
+    <div class="w3-third">
+        <div class="w3-row">
+            <div class="w3-half w3-padding @(disableauto)">
+                <br />
+                @CheckBox(info, "genxml/checkbox/autopublish", "&nbsp;" + ResourceKey("RocketBlogApi.autopublish"), " class='w3-check' ", true)
+            </div>
+            <div class="w3-half w3-padding">
+                <br />
+                @CheckBox(info, articleData.HiddenXPath, "&nbsp;" + ResourceKey("DNNrocket.hidden"), " class='w3-check' " + disablehide)
+            </div>
+        </div>
+    </div>
+</div>
+<div class=" w3-row w3-padding">
+    <label>@ResourceKey("RC.name")</label>&nbsp;@EditFlag(sessionParams)
+    @TextBox(info, articleData.NameXPath, " class='w3-input w3-border' autocomplete='off' ", "", true, 0)
+</div>
+<div class=" w3-row w3-padding">
+    <label>@ResourceKey("DNNrocket.summary")</label>&nbsp;@EditFlag(sessionParams)
+    @TextArea(info, articleData.SummaryXPath, " class='w3-input w3-border' rows='8' autocomplete='off' ", "", true, 0)
+</div>
+<div class=" w3-row w3-padding">
+    <label>@ResourceKey("DNNrocket.description")</label>&nbsp;@EditFlag(sessionParams)
+    @CKEditor4(info, articleData.RichTextXPath, true)
+</div>
+<div class=" w3-row w3-padding">
+    @RenderTemplate("AdminExtra.cshtml", appTheme, Model, true)
+</div>
