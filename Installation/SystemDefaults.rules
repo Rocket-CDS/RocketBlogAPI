@@ -11,7 +11,8 @@ and
 ([XMLData].value('(genxml/textbox/publisheddate)[1]','date') <= convert(date,'{searchdate2}') or '{searchdate2}' = '')
 )		
 		]]>
-	</article>    
+	</article>
+	  <articleadmin>{contains:searchtext}</articleadmin>
   </sqlfilter>
   <sqlorderby>
 	  <product>
