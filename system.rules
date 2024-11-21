@@ -1,7 +1,7 @@
 <genxml>
   <systemkey>rocketblogapi</systemkey>
 	<basesystemkey>rocketdirectoryapi</basesystemkey>
-	<systemname>RocketBlogAPI</systemname>
+	<systemname>RocketBlog</systemname>
   <databasetable>RocketBlogAPI</databasetable>
   <logtracking>False</logtracking>
   <active>True</active>
