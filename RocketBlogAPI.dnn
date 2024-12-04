@@ -2,7 +2,7 @@
 	<packages>
     
 		<package name="RocketBlogAPI" type="Library" version="1.0.0">
-			<friendlyName>RocketBlogAPI</friendlyName>
+			<friendlyName>RocketBlogAPI by Nevoweb</friendlyName>
 			<DefinitionName>RocketBlogAPI</DefinitionName>
 			<description>RocketBlogAPI</description>
       <iconFile></iconFile>
