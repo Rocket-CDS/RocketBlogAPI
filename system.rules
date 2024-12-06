@@ -2,7 +2,7 @@
   <systemkey>rocketblogapi</systemkey>
 	<basesystemkey>rocketdirectoryapi</basesystemkey>
 	<systemname>RocketBlog</systemname>
-  <databasetable>RocketBlogAPI</databasetable>
+  <databasetable>RocketDirectoryAPI</databasetable>
   <logtracking>False</logtracking>
   <active>True</active>
   <icon>auto_awesome_motion</icon>
