@@ -32,7 +32,7 @@ and
 	</sqlfilterarticle>
 	<sqlfilterarticleadmin>
 		<![CDATA[
-		{contains:searchtext}
+{contains:searchtext}
 		]]>
 	</sqlfilterarticleadmin>
 	<schedulerrunhours>24</schedulerrunhours>
