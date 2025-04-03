@@ -21,7 +21,8 @@ namespace RocketBlogAPI.Components
                 {
                     var portalid = paramInfo.GetXmlPropertyInt("genxml/hidden/portalid");
                     if (portalid == 0) portalid = PortalUtils.GetCurrentPortalId();
-                    var cultureCode = DNNrocketUtils.GetCurrentCulture();
+                    var sessionParams = new SessionParams(paramInfo);
+                    var cultureCode = sessionParams.CultureCodeEdit;
                     var articleData = new ArticleLimpet(portalid, articleId, cultureCode, systemData.SystemKey);
                     if (articleData.Exists)
                     {
@@ -36,7 +37,6 @@ namespace RocketBlogAPI.Components
                                     articleData.Info.SetXmlProperty("genxml/checkbox/hidden", "true");
                                     articleData.Update();
 
-                                    var sessionParams = new SessionParams(paramInfo);
                                     var strOut = "";
                                     var dataObject = new DataObjectLimpet(portalid, sessionParams.ModuleRef, sessionParams, systemData.SystemKey);
 
