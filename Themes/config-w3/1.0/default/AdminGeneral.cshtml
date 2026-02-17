@@ -50,7 +50,7 @@
             &nbsp;@ChatGPT("articlerichtext", "articlename")&nbsp;@DeepL("articlerichtext", "articlerichtext", sessionParams.CultureCodeEdit)
         </span>
     </div>
-    @CKEditor4(info, articleData.RichTextXPath, true)
+    @Editor(info, articleData.RichTextXPath, Model)
 </div>
 <div class=" w3-row w3-padding">
     @RenderTemplate("AdminExtra.cshtml", appTheme, Model, true)
