@@ -29,4 +29,8 @@
 		<value>RocketBlogAPI.dll</value>
     <value>RocketBlogAPI.pdb</value>
   </assembly>
+
+	<json>
+	</json>
+
 </root>
